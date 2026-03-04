@@ -85,6 +85,11 @@
 <!-- include/ call about us page -->
 @include('pages.about-us')
 
+<hr class="my-8">
+
+<!-- include/ call solutions page -->
+@include('pages.solutions')
+
     <hr class="my-8">
 <div class="rounded-lg shadow p-6 md:p-8" style="background-color: #eff8f4;">
 

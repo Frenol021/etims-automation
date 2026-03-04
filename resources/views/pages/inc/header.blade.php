@@ -40,6 +40,7 @@
                 <ul class="flex space-x-6">
                     <li><a href="{{ url('index') }}" class="hover:text-gray-600">Home</a></li>
                     <li><a href="{{ url('about.us') }}" class="hover:text-gray-600">About Us</a></li>
+                    <li><a href="{{ url('solutions') }}" class="hover:text-gray-600">Solutions</a></li>
                     <livewire:pages.inc.shop-nav :categories="$categories"/>
                 </ul>
             </div>
@@ -59,7 +60,7 @@
                 </a>
 
                 <a href="{{ url('cart.page') }}" class="relative flex items-center">
-                    <span class="mr-2 font-bold">Cart</span>
+                    <span class="mr-2 font-bold">Shop</span>
                     <i class="fa fa-shopping-cart"></i>
                     <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 rounded-full">
                         2
