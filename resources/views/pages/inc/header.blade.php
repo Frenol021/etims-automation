@@ -73,23 +73,47 @@
 </div>
 {{-- phone view --}}
 
+<div x-data="{ open: false }" class="xl:hidden">
 
-<div x-data="{ open:false }" class="flex items-center justify-between xl:hidden py-4 px-4">
+    <!-- Top Bar -->
+    <div class="flex items-center justify-between py-4 px-4">
 
-    <button @click="open = true" class="text-2xl">
-        ☰
-    </button>
+        <!-- Hamburger -->
+        <button @click="open = true" class="text-3xl">
+            ☰
+        </button>
 
-    <a href="{{ url('index') }}">
-        <img src="{{ asset('assets/images/logo.png') }}" width="100">
-    </a>
+    </div>
 
-    <a href="{{ url('cart.page') }}" class="relative">
-        <i class="fa fa-shopping-cart"></i>
-        <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 rounded-full">2</span>
-    </a>
+    <!-- Sidebar Overlay -->
+    <div
+        x-show="open"
+        x-transition
+        class="fixed inset-0 bg-black bg-opacity-50 z-40"
+        @click="open = false"
+    ></div>
 
-    <x-sidebar />
+    <!-- Sidebar -->
+    <div
+        x-show="open"
+        x-transition:enter="transition transform duration-300"
+        x-transition:enter-start="-translate-x-full"
+        x-transition:enter-end="translate-x-0"
+        x-transition:leave="transition transform duration-300"
+        x-transition:leave-start="translate-x-0"
+        x-transition:leave-end="-translate-x-full"
+        class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 p-6"
+    >
+
+        <!-- Close Button -->
+        <button @click="open = false" class="mb-6 text-2xl">
+            ✕
+        </button>
+
+        <!-- Sidebar Content -->
+        <x-sidebar />
+
+    </div>
 
 </div>
 

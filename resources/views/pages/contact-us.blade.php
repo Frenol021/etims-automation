@@ -12,20 +12,21 @@
         <div>
             <h3 class="text-xl font-semibold mb-3">Send Us a Message</h3>
 
-            <form wire:submit.prevent="submit" class="space-y-4">
+            <form action="{{ route('send.email') }}" method="POST" class="space-y-4">
+                @csrf
                 <div>
                     <label for="name" class="block text-sm font-semibold">Name</label>
-                    <input type="text" id="name" wire:model="name" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-800">
+                    <input type="text" id="name" name="name" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-800">
                 </div>
 
                 <div>
                     <label for="email" class="block text-sm font-semibold">Email</label>
-                    <input type="email" id="email" wire:model="email" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-800">
+                    <input type="email" id="email" name="email" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-800">
                 </div>
 
                 <div>
                     <label for="message" class="block text-sm font-semibold">Message</label>
-                    <textarea id="message" wire:model="message" rows="4" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-800"></textarea>
+                    <textarea id="message" name="message" rows="4" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-800"></textarea>
                 </div>
 
                 <button type="submit" class="bg-gray-900 text-white px-5 py-2 rounded-lg hover:bg-blue-600 transition">Send Message</button>
